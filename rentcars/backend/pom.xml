@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.okellyson</groupId>
-	<artifactId>rentcars</artifactId>
+	<artifactId>carregister</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>rentcars</name>
-	<description>API para aluguel de carros</description>
+	<description>API para cadastro de carros</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>

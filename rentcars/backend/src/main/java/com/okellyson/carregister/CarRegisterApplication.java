@@ -1,13 +1,13 @@
-package com.okellyson.rentcars;
+package com.okellyson.carregister;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RentcarsApplication {
+public class CarRegisterApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RentcarsApplication.class, args);
+		SpringApplication.run(CarRegisterApplication.class, args);
 	}
 
 }
