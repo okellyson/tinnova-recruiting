@@ -1,0 +1,7 @@
+-- Criação inicial do banco de dados e usuário
+
+CREATE DATABASE wjgauzfz;
+
+CREATE ROLE wjgauzfz LOGIN
+  ENCRYPTED PASSWORD 'E5g8INNQjisvTPzCCwKvVvLk6oVe3Qmy'
+  SUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;

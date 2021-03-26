@@ -1,0 +1,10 @@
+INSERT INTO public.marca (nome, codigo) VALUES ('Toyota', 'TYT');
+INSERT INTO public.marca (nome, codigo) VALUES ('Volkswagen', 'VWG');
+INSERT INTO public.marca (nome, codigo) VALUES ('Ford', 'FRD');
+INSERT INTO public.marca (nome, codigo) VALUES ('Honda', 'HND');
+INSERT INTO public.marca (nome, codigo) VALUES ('Nissan', 'NSN');
+INSERT INTO public.marca (nome, codigo) VALUES ('Hyundai', 'HDI');
+INSERT INTO public.marca (nome, codigo) VALUES ('Chevrolet', 'CVT');
+INSERT INTO public.marca (nome, codigo) VALUES ('Kia', 'KIA');
+INSERT INTO public.marca (nome, codigo) VALUES ('Mercedes-Benz', 'MBZ');
+INSERT INTO public.marca (nome, codigo) VALUES ('BMW', 'BMW');
