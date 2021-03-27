@@ -5,15 +5,15 @@ public class Eleitores{
     private Integer votosBrancos = 150;
     private Integer votosNulos = 50;
 
-    private Double calculaPercentualValidos() {
+    public Double calculaPercentualValidos() {
         return this.votosValidos / this.totalDeEleitores;
     }
 
-    private Double calculaPercentualBrancos() {
+    public Double calculaPercentualBrancos() {
         return this.votosBrancos / this.totalDeEleitores;
     }
 
-    private Double calculaPercentualNulos() {
+    public Double calculaPercentualNulos() {
         return this.votosNulos / this.totalDeEleitores;
     }
 
