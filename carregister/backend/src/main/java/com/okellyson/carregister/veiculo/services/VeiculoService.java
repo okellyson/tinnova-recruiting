@@ -85,12 +85,12 @@ public class VeiculoService extends GenericService implements IVeiculoService {
     }
 
     @Override
-    public VeiculoDTO excluir(VeiculoDTO veiculoDTO) {
+    public VeiculoDTO excluir(Integer id) {
 
-        Veiculo veiculoSalvo = getVeiculo(veiculoDTO.getId());
+        Veiculo veiculoSalvo = getVeiculo(id);
         veiculoRepository.delete(veiculoSalvo);
 
-        return veiculoDTO;
+        return new VeiculoDTO().parse(veiculoSalvo);
 
     }
 

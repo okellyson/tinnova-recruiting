@@ -8,3 +8,4 @@ INSERT INTO public.marca (nome, codigo) VALUES ('Chevrolet', 'CVT');
 INSERT INTO public.marca (nome, codigo) VALUES ('Kia', 'KIA');
 INSERT INTO public.marca (nome, codigo) VALUES ('Mercedes-Benz', 'MBZ');
 INSERT INTO public.marca (nome, codigo) VALUES ('BMW', 'BMW');
+INSERT INTO public.marca (nome, codigo) VALUES ('Fiat', 'FAT');

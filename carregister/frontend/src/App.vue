@@ -1,60 +1,50 @@
-<template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+<template lang='pug'>
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
+    v-app#app
+        v-main
 
-      <v-spacer></v-spacer>
+            v-app-bar(color="success")
+                h1 Cadastro de Veículos
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
+            v-container
+                router-view
 
-    <v-main>
-      <HelloWorld/>
-    </v-main>
-  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
 
-export default {
-  name: 'App',
+    export default {
 
-  components: {
-    HelloWorld,
-  },
+        name: "App",
 
-  data: () => ({
-    //
-  }),
-};
+        data: () => ({})
+
+    };
+
 </script>
+
+<style>
+
+h1 {
+    color: white;
+}
+
+h2 {
+    color: #1B1B1B;
+}
+
+p {
+    color: #2B2B2B;
+}
+
+html {
+    overflow-y: auto !important;
+}
+
+#app {
+    font-family: Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+</style>

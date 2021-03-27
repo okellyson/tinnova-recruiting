@@ -15,7 +15,7 @@ public interface IVeiculoService {
 
     VeiculoDTO editar(VeiculoDTO veiculoDTO);
 
-    VeiculoDTO excluir(VeiculoDTO veiculoDTO);
+    VeiculoDTO excluir(Integer id);
 
     VeiculoDTO vender(VeiculoDTO veiculoDTO);
 

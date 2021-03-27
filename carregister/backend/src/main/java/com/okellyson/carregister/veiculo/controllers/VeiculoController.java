@@ -1,9 +1,10 @@
 package com.okellyson.carregister.veiculo.controllers;
 
+import com.okellyson.carregister.config.GenericController;
 import com.okellyson.carregister.veiculo.dtos.VeiculoDTO;
 import com.okellyson.carregister.veiculo.interfaces.IVeiculoService;
-import com.okellyson.carregister.veiculo.models.Veiculo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,9 +13,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-public class VeiculoController {
+public class VeiculoController extends GenericController {
 
-    private static final String BASE_ROUTE = "/veiculo";
+    private static final String BASE_ROUTE = "/veiculos";
 
     @Autowired
     IVeiculoService veiculoService;
@@ -24,8 +25,21 @@ public class VeiculoController {
 
         List<VeiculoDTO> veiculos = veiculoService.listar();
 
-        return ResponseEntity.ok()
-                .body(veiculos);
+        return ok().body(veiculos);
+
+    }
+
+    @PostMapping(value = BASE_ROUTE + "/find")
+    public ResponseEntity<List<VeiculoDTO>> listarPorFiltro(@Valid @RequestBody VeiculoDTO filtro) {
+
+        List<VeiculoDTO> veiculos = veiculoService.listar();
+
+        // Devia ser uma query
+        if(filtro.getVendido() != null) {
+            veiculos = veiculos.stream().filter(v -> v.getVendido().equals(filtro.getVendido())).collect(Collectors.toList());
+        }
+
+        return ok().body(veiculos);
 
     }
 
@@ -34,18 +48,17 @@ public class VeiculoController {
 
         VeiculoDTO veiculo = veiculoService.buscar(id);
 
-        return ResponseEntity.ok()
-                .body(veiculo);
+        return ok().body(veiculo);
 
     }
 
     @PostMapping(value = BASE_ROUTE)
     public ResponseEntity<VeiculoDTO> cadastrar(@Valid @RequestBody VeiculoDTO veiculoDTO) {
 
-        VeiculoDTO veiculoSalvo = veiculoService.cadastrar(veiculoDTO);
+        // Método PUT pelo Axios não está funcionando. Medida paliativa, pois não existe tempo hábil para correção
+        VeiculoDTO veiculoSalvo = veiculoDTO.getId() == null ? veiculoService.cadastrar(veiculoDTO) : veiculoService.editar(veiculoDTO);
 
-        return ResponseEntity.ok()
-                .body(veiculoSalvo);
+        return ok().body(veiculoSalvo);
 
     }
 
@@ -54,18 +67,16 @@ public class VeiculoController {
 
         VeiculoDTO veiculoEditado = veiculoService.editar(veiculoDTO);
 
-        return ResponseEntity.ok()
-                .body(veiculoEditado);
+        return ok().body(veiculoEditado);
 
     }
 
-    @DeleteMapping(value = BASE_ROUTE)
-    public ResponseEntity<VeiculoDTO> excluir(@Valid @RequestBody VeiculoDTO veiculoDTO) {
+    @DeleteMapping(value = BASE_ROUTE + "/{id}")
+    public ResponseEntity<VeiculoDTO> excluir(@PathVariable Integer id) {
 
-        VeiculoDTO veiculoExcluido = veiculoService.excluir(veiculoDTO);
+        VeiculoDTO veiculoExcluido = veiculoService.excluir(id);
 
-        return ResponseEntity.ok()
-                .body(veiculoExcluido);
+        return ok().body(veiculoExcluido);
 
     }
 
@@ -74,8 +85,7 @@ public class VeiculoController {
 
         VeiculoDTO veiculoVendido = veiculoService.vender(veiculoDTO);
 
-        return ResponseEntity.ok()
-                .body(veiculoVendido);
+        return ok().body(veiculoVendido);
 
     }
 }
